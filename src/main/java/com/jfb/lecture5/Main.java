@@ -30,16 +30,16 @@ public class Main {
       total++;
       System.out.println(busTicket.toString());
 
-      int sdv = StartDateValidatorUtil.startDateValidate(busTicket);
-      int pv = PriceValidatorUtil.PriceValidate(busTicket);
-      int ttv = TicketTypeValidatorUtil.ticketTypeValidate(busTicket);
+      int startDateValidation = StartDateValidatorUtil.startDateValidate(busTicket);
+      int priceValidation = PriceValidatorUtil.PriceValidate(busTicket);
+      int ticketTypeValidation = TicketTypeValidatorUtil.ticketTypeValidate(busTicket);
 
-      int mistakesAmount = sdv + pv + ttv;
+      int mistakesAmount = startDateValidation + priceValidation + ticketTypeValidation;
 
 
-      startDate = startDate + sdv;
-      price = price + pv;
-      ticketType = ticketType + ttv;
+      startDate = startDate + startDateValidation;
+      price = price + priceValidation;
+      ticketType = ticketType + ticketTypeValidation;
 
       if (mistakesAmount > 0) {
         System.out.println("Warning: there are mistakes in the ticket");
